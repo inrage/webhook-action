@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh -l
 
 if [ -n "$INPUT_WEBHOOK_PRODUCTION" ]; then
     webhook_url=$INPUT_WEBHOOK_PRODUCTION
@@ -11,6 +11,6 @@ if [ -z "$webhook_url" ]; then
     exit 1
 fi
 
-echo "response-body=$(webhook_url)" >> "$GITHUB_OUTPUT"
+echo "response-body=${webhook_url}" >>"$GITHUB_OUTPUT"
 
 exit 0
