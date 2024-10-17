@@ -25,8 +25,26 @@ jobs:
         id: test-action
         uses: ./
         with:
-          webhook_production: Mona Lisa Octocat
+          webhook_production: http://127.0.0.1
+          verbose: true
+          silent: false
 
       - name: Print Output
-        id: output
         run: echo "${{ steps.test-action.outputs.response-body }}"
+
+      - name: Test second Local Action
+        id: test-action-2
+        uses: ./
+        with:
+          webhook_production: http://prod.localhost
+          webhook_release: http://release.localhost
+          verbose: true
+          silent: false
+
+      - name: Print Output
+        run: echo "${{ steps.test-action-2.outputs.response-body }}"
+
+      - name: Test second Local Action
+        uses: ./
+        with:
+          webhook_production: http://prod.localhost

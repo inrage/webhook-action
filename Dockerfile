@@ -1,7 +1,7 @@
-FROM alpine:3.10
+FROM alpine
+
+RUN apk add --no-cache bash curl openssl xxd jq jo
 
 COPY entrypoint.sh /entrypoint.sh
-
-RUN cat /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]

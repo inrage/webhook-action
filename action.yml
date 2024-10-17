@@ -12,6 +12,8 @@ inputs:
     required: true
   webhook_release:
     description: "The webhook URL for the release environment."
+  silent:
+    description: "Whether to suppress output."
 
 runs:
   using: "docker"
