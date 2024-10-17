@@ -25,7 +25,7 @@ jobs:
         id: test-action
         uses: ./
         with:
-          webhook_production: http://127.0.0.1
+          webhook_production: https://httpbin.org/post
           verbose: true
           silent: false
 
@@ -36,8 +36,8 @@ jobs:
         id: test-action-2
         uses: ./
         with:
-          webhook_production: http://prod.localhost
-          webhook_release: http://release.localhost
+          webhook_production: https://httpbin.org/post
+          webhook_release: https://httpbin.org/post
           verbose: true
           silent: false
 
@@ -47,4 +47,4 @@ jobs:
       - name: Test second Local Action
         uses: ./
         with:
-          webhook_production: http://prod.localhost
+          webhook_production: https://httpbin.org/post
