@@ -8,14 +8,21 @@ supports both SHA-1 and SHA-256 HMAC signatures for securing webhook requests.
 
 ## Inputs
 
-| Input                | Description                                                                                                              | Default   | Required |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------- | -------- |
-| `production_branch`  | The branch you consider your production branch.                                                                          | `main`    | No       |
-| `release_branch`     | The branch you consider your release branch. If the current branch matches this input, the release webhook will be used. | `release` | No       |
-| `webhook_production` | The webhook URL for the production environment.                                                                          | N/A       | Yes      |
-| `webhook_release`    | The webhook URL for the release environment.                                                                             | N/A       | No       |
-| `silent`             | Whether to suppress the output of the action.                                                                            | N/A       | No       |
-| `verbose`            | Whether to enable verbose logging of the action's steps.                                                                 | N/A       | No       |
+| Input                 | Description                                              | Default   |
+| --------------------- | -------------------------------------------------------- | --------- |
+| `production_branch`\* | Your production branch.                                  | `main`    |
+| `release_branch`      | Your release branch.                                     | `release` |
+| `webhook_production`  | The webhook URL for the production environment.          | N/A       |
+| `webhook_release`     | The webhook URL for the release environment.             | N/A       |
+| `silent`              | Whether to suppress the output of the action.            | N/A       |
+| `verbose`             | Whether to enable verbose logging of the action's steps. | N/A       |
+
+### Note for release_branch
+
+The `release_branch` input is optional. If you do not provide a release branch,
+the action will only send webhooks to the production environment.
+
+If the release branch matches this input, the `webhook_release` will be used.
 
 ## Outputs
 

@@ -1,5 +1,6 @@
 name: 'Webhook Notification Action'
 description: 'A GitHub Action to send a webhook request.'
+author: 'inRage'
 inputs:
   production_branch:
     description: 'The production branch to deploy to.'
