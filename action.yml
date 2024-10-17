@@ -1,0 +1,22 @@
+name: "Webhook Action"
+description: "A GitHub Action to send a webhook request."
+inputs:
+  production_branch:
+    description: "The production branch to deploy to."
+    default: "main"
+  release_branch:
+    description: "The release branch to deploy to."
+    default: "release"
+  webhook_production:
+    description: "The webhook URL for the production environment."
+    required: true
+  webhook_release:
+    description: "The webhook URL for the release environment."
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+outputs:
+  response-body:
+    description: The response body of the webook response
