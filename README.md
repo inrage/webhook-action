@@ -70,23 +70,23 @@ jobs:
 ## How It Works Webhook Selection
 
 1. The action checks whether the current branch is the production_branch or
-release_branch. If the branch is the release branch and a release webhook URL is
-provided, it sends the webhook to the release endpoint. Otherwise, it uses the
-production webhook URL. Payload:
+   release_branch. If the branch is the release branch and a release webhook URL
+   is provided, it sends the webhook to the release endpoint. Otherwise, it uses
+   the production webhook URL. Payload:
 
 2. The webhook payload contains information about the event (event), repository,
-commit SHA, reference, and the GitHub workflow details. A unique request ID
-(requestID) is generated for each request. Signatures:
+   commit SHA, reference, and the GitHub workflow details. A unique request ID
+   (requestID) is generated for each request. Signatures:
 
 3. The payload is signed using both SHA-1 and SHA-256 HMAC signatures, using the
-webhook URL as the secret key. Options:
+   webhook URL as the secret key. Options:
 
-4. You can control the verbosity of the logs by setting the verbose input to true.
-This will print detailed curl command logs. Setting the silent input to true
-will suppress output, but logs can still be reviewed in verbose mode. Response
-Handling:
+4. You can control the verbosity of the logs by setting the verbose input to
+   true. This will print detailed curl command logs. Setting the silent input to
+   true will suppress output, but logs can still be reviewed in verbose mode.
+   Response Handling:
 
-5. The response body from the webhook request is captured and outputted under the
-response-body output. Security Ensure that sensitive information such as
-webhook_production and webhook_release URLs are stored securely in GitHub
-Secrets. Do not hardcode them in the workflow files.
+5. The response body from the webhook request is captured and outputted under
+   the response-body output. Security Ensure that sensitive information such as
+   webhook_production and webhook_release URLs are stored securely in GitHub
+   Secrets. Do not hardcode them in the workflow files.
