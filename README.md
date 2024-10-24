@@ -8,14 +8,14 @@ supports both SHA-1 and SHA-256 HMAC signatures for securing webhook requests.
 
 ## Inputs
 
-| Input                 | Description                                              | Default   |
-| --------------------- | -------------------------------------------------------- | --------- |
-| `production_branch`\* | Your production branch.                                  | `main`    |
-| `release_branch`      | Your release branch.                                     | `release` |
-| `webhook_production`  | The webhook URL for the production environment.          | N/A       |
-| `webhook_release`     | The webhook URL for the release environment.             | N/A       |
-| `silent`              | Whether to suppress the output of the action.            | N/A       |
-| `verbose`             | Whether to enable verbose logging of the action's steps. | N/A       |
+| Input                 | Description                            | Default   |
+| --------------------- | -------------------------------------- | --------- |
+| `production_branch`\* | Your production branch.                | `main`    |
+| `release_branch`      | Your release branch.                   | `release` |
+| `webhook_production`  | Webhook URL for the production.        | N/A       |
+| `webhook_release`     | Webhook URL for the release.           | N/A       |
+| `silent`              | Suppress the output of the action.     | N/A       |
+| `verbose`             | Verbose logging of the action's steps. | N/A       |
 
 ### Note for release_branch
 
@@ -73,20 +73,16 @@ jobs:
    release_branch. If the branch is the release branch and a release webhook URL
    is provided, it sends the webhook to the release endpoint. Otherwise, it uses
    the production webhook URL. Payload:
-
-2. The webhook payload contains information about the event (event), repository,
+1. The webhook payload contains information about the event (event), repository,
    commit SHA, reference, and the GitHub workflow details. A unique request ID
    (requestID) is generated for each request. Signatures:
-
-3. The payload is signed using both SHA-1 and SHA-256 HMAC signatures, using the
+1. The payload is signed using both SHA-1 and SHA-256 HMAC signatures, using the
    webhook URL as the secret key. Options:
-
-4. You can control the verbosity of the logs by setting the verbose input to
+1. You can control the verbosity of the logs by setting the verbose input to
    true. This will print detailed curl command logs. Setting the silent input to
    true will suppress output, but logs can still be reviewed in verbose mode.
    Response Handling:
-
-5. The response body from the webhook request is captured and outputted under
+1. The response body from the webhook request is captured and outputted under
    the response-body output. Security Ensure that sensitive information such as
    webhook_production and webhook_release URLs are stored securely in GitHub
    Secrets. Do not hardcode them in the workflow files.
