@@ -1,5 +1,12 @@
 # Webhook Action
 
+[![Github release](https://img.shields.io/github/v/release/inrage/webhook-action.svg?style=flat-square)](https://github.com/inrage/webhook-action/releases/latest)
+[![GitHub marketplace](https://img.shields.io/badge/marketplace-webhook--notification--action-blue?logo=github&style=flat-square)](https://github.com/marketplace/actions/build-and-push-docker-images)
+[![CI workflow](https://img.shields.io/github/actions/workflow/status/inrage/webhook-action/linter.yml?branch=main&label=CI&logo=github&style=flat-square)](https://github.com/inrage/webhook-action/actions?workflow=lint)
+[![Test workflow](https://img.shields.io/github/actions/workflow/status/inrage/webhook-action/main.yml?branch=main&label=test&logo=github&style=flat-square)](https://github.com/inrage/webhook-action/actions?workflow=continuous%20integration)
+
+## About
+
 This GitHub Action sends webhook requests based on specific branches (production
 or release), with options to customize verbosity and silence output. The action
 generates a unique request ID, gathers relevant GitHub event information, and
