@@ -9,7 +9,7 @@ supports both SHA-1 and SHA-256 HMAC signatures for securing webhook requests.
 ## Inputs
 
 | Input                 | Description                            | Default   |
-|-----------------------|----------------------------------------|-----------|
+| --------------------- | -------------------------------------- | --------- |
 | `production_branch`\* | Your production branch.                | `main`    |
 | `release_branch`      | Your release branch.                   | `release` |
 | `webhook_production`  | Webhook URL for the production.        | N/A       |
